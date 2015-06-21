@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 		@user = User.new
 	end
 
+	def index
+		render :new
+	end
+
 	def create
 		@user = User.new(user_params)
 		if @user.save
@@ -32,7 +36,7 @@ class UsersController < ApplicationController
 
 
 	def user_params
-		params.require(:user).permit(:nome, :email, :senha, :senha_confirmation)
+		params.require(:user).permit(:nome, :email, :password, :password_confirmation)
 	end
 
 	def delete

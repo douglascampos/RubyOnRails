@@ -1,30 +1,29 @@
 <% if @user.errors.any? %>
 	<div id="error_explanation">
 		<h2>Informe corretamente os dados solicitados</h2>
-		<ul>
-			<% @user.errors.full_messages.each do |msg| %> 
-				<li><%= msg %></li>
-			<% end %>
-		</ul>
 	</div>
 <% end %>
 
 <%= form_for @user do |f| %>
 	<p>
-		<%= f.label :nome %> <br/>
+		<%= f.label :nome %> 
 		<%= f.text_field :nome %>
+		<%= error_tag @user, :nome %>
 	</p>
 	<p>
-		<%= f.label :email %> <br/>
+		<%= f.label :email %> 
 		<%= f.text_field :email %>
+		<%= error_tag @user, :email %>
 	</p>
 	<p>
-		<%= f.label :senha %> <br/>
-		<%= f.password_field :senha %>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+		<%= error_tag @user, :password %>
 	</p>
 	<p>
-		<%= f.label :senha_confirmation %> <br/>
-		<%= f.password_field :senha_confirmation %>
+		<%= f.label :password_confirmation %> 
+		<%= f.password_field :password_confirmation %>
+		<%= error_tag @user, :password_confirmation %>
 	</p>
 	<p>
 		<%= f.submit %>

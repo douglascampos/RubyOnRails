@@ -1,9 +1,10 @@
-<h1>Bem vindo ao site de Registro de Usuarios</h1>
+<h1>Bem vindo ao site de Registro de Alunos</h1>
 
-<p>
-	Escolha uma das opçoes:
-	<ul>
-		<li><%= link_to "Cadastro",new_user_path%></li>
-		<li><%= link_to "Visualizar Alunos cadastrados",alunos_path%></li>
-	</ul>
-</p>
+<h2>Alunos recem cadastrados</h2>
+
+<ul>
+	<% @alunos.each do |aluno| %>
+		<li><%= link_to aluno.nome_completo, aluno%></li>
+		
+	<%end %>
+</ul>
